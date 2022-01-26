@@ -1,0 +1,16 @@
+body{
+    /* margin: auto; */
+}
+
+
+.cell{
+background-color: lightslategray;
+width: 80px;
+height: 80px;
+text-align: center;
+font-size: 2em;
+}
+/* 
+.shown{
+    background-color: rgb(204, 58, 58);
+} */
