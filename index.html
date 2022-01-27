@@ -10,13 +10,22 @@
 <body>
     <body onload="init()">
         <h1>Mine 💣 Sweeper</h1>
+        <button class="reset" onclick="reset(this)">😀</button>
+        <span class="timer"></span>
+        <div onclick="gameOver()" class="modal">well soldier <br><span class="smodal"></span></div>
         <div class="game-board">
-            <button class="reset" onclick="reset(this)">😀</button>
             <table>
-                <tbody class="board">
+                <tbody class="board" >
     
                 </tbody>
             </table>
+            </div>
+            
+            <button onclick="gameDifficulty(4)">easy</button>
+            <button onclick="gameDifficulty(8)">midum</button>
+            <button onclick="gameDifficulty(12)">hard</button>
+            <div class="footer">Yosef Zemer Tov <br>
+            email address : yosizemertov@gmail.com
             </div>
         <script src="js/utils.js"></script>
         <script src="js/main.js"></script>

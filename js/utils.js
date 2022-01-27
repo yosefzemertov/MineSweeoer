@@ -11,8 +11,6 @@ function createMat(size) {
             }
         }
     }
-    board[2][3].isMine = true;
-    board[1][2].isMine = true;
     return board;
 }
 
@@ -22,9 +20,10 @@ function renderBoard() {
         strHTML += `<tr>\n`
         for (var j = 0; j < gLevel.SIZE; j++) {
             var cell = gBoard[i][j];
-            var className = (!gBoard[i][j].isShown)?'shown':'unShown';
-            strHTML += `\t<td class="cell ${className}" 
-                            onclick="cellClicked(this, ${i}, ${j})" oncontextmenu="markcell(this, event, ${i}, ${j})">
+            // var id = (gBoard[i][j].isMine) ? 'mine' : '';
+            var calssName = `i${i}j${j}`;
+            strHTML += `\t<td class="cell ${calssName}"  
+                            onclick="cellClicked(this, ${i}, ${j})" oncontextmenu="markcell(this, ${i}, ${j})">  
                         </td>\n`
         }
         strHTML += `</tr>\n`
@@ -37,30 +36,24 @@ function renderBoard() {
 }
 
 function renderCell(elCell, value) {
-    elCell.innerHTML = value
+    elCell.innerText = value
 }
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
-// function renderBoard() {
-//     var strHTML = '';
-//     for (var i = 0; i < gLevel.SIZE; i++) {
-//         strHTML += `<tr>\n`
-//         for (var j = 0; j < gLevel.SIZE; j++) {
-//             var cell = gBoard[i][j];
+function shuffle(items) {
+    var randIdx, keep
+    for (var i = items.length - 1; i > 0; i--) {
+        randIdx = getRandomInt(0, items.length - 1);
 
-//             var className = '';
-//             className = (cell.isShown) ? 'shown' : 'unshown';
-//             strHTML += `\t<td class="cell ${className}" onclick="cellClicked(this,${i},${j})">
-//                             </td>\n`
-//         }
-//         strHTML += `</tr>\n`
-//     }
-//     // console.log(strHTML)
+        keep = items[i];
+        items[i] = items[randIdx];
+        items[randIdx] = keep;
+    }
+    return items;
+}
 
-//     var elcells = document.querySelector('tbody');
-//     elcells.innerHTML = strHTML;
-// }
-
-
-
-/* <td class="cell ${className}" onclick="cellClicked(this, ${i}, ${j})" oncontextmenu="markCell(this, ${i},${j})"></td> */
