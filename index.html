@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="css/main.css">
     <meta charset="UTF-8">
@@ -7,28 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+
     <body onload="init()">
         <h1>Mine 💣 Sweeper</h1>
-        <button class="reset" onclick="reset(this)">😀</button>
-        <span class="timer"></span>
+
+        <h3>TIME: <span class="timer"></span> live: <span class="live">3</span> </h3> <br>
+        <span class="flag"></span><button class="reset" onclick="reset(this)">😀</button><button class="hint" onclick="hint(this)">hint (3)</button>
         <div onclick="gameOver()" class="modal">well soldier <br><span class="smodal"></span></div>
         <div class="game-board">
             <table>
-                <tbody class="board" >
-    
+                <tbody class="board">
+
                 </tbody>
             </table>
-            </div>
-            
-            <button onclick="gameDifficulty(4)">easy</button>
-            <button onclick="gameDifficulty(8)">midum</button>
-            <button onclick="gameDifficulty(12)">hard</button>
-            <div class="footer">Yosef Zemer Tov <br>
+        </div>
+
+        <button class="level1" onclick="gameDifficulty(4)">easy</button>
+        <button class="level" onclick="gameDifficulty(8)">midum</button>
+        <button class="level" onclick="gameDifficulty(12)">hard</button>
+        <div class="footer">Yosef Zemer Tov <br>
             email address : yosizemertov@gmail.com
-            </div>
+        </div>
         <script src="js/utils.js"></script>
         <script src="js/main.js"></script>
     </body>
 </body>
+
 </html>
